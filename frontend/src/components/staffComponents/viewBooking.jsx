@@ -171,5 +171,6 @@ class ViewBookingPage extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_API_KEY
+    // apiKey: process.env.REACT_APP_API_KEY
+    apiKey: "AIzaSyAF3TYatEpzOshnx4qtfRNuthI3j6GWUms"
 })(ViewBookingPage);
