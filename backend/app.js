@@ -13,9 +13,10 @@ const cars_routes = require('./api/routes/cars');
 dotenv.config();
 
 // const db_uri = process.env.MONGO_URI || "mongodb+srv://sdileepkumarreddy:Qwerty123@cluster0.j477k.mongodb.net"
-const db_uri = "mongodb+srv://sdileepkumarreddy:Qwerty123@cluster0.j477k.mongodb.net"
+
+const db_uri = "mongodb+srv://admin:Csye@7220.hvf8i.mongodb.net"
 // MongoDB Connection
-mongoose.connect(db_uri + '/uberbusbooking?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true }).then(() => console.log('DB Connected:' + db_uri))
+mongoose.connect(db_uri + '/uber?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true }).then(() => console.log('DB Connected:' + db_uri))
     .catch(err => {
         console.log(process.env.MONGO_URI)
         console.log('DB Connection Error: ' + err.message);
