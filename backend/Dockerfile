@@ -14,26 +14,11 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package.json .
 COPY package-lock.json .
-RUN npm ci
+COPY . .
+
+# RUN npm install pm2 -g
+RUN npm install --save-dev dotenv
+RUN npm i
 #RUN npm install react-scripts@4.0.0 --silent
 
-# create build
-COPY . .
-RUN npm run build
-
-#########
-# FINAL #
-#########
-
-# base image
-FROM nginx
-
-# update nginx conf
-#RUN rm -rf /etc/nginx/conf.d
-#COPY conf /etc/nginx
-
-# copy static files
-COPY --from=builder /app/build /usr/share/nginx/html
-
-# expose port
-EXPOSE 80
+CMD ["npm", "start"]

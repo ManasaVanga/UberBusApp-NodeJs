@@ -9,7 +9,7 @@ services:
       context: ./be
       dockerfile: Dockerfile
     ports:
-      - 5004:80
+      - 3001:80
     environment:
       - NODE_ENV=development
       - DATABASE_URL=mongodb+srv://%s:%s@uberapp.hvf8i.mongodb.net/uber?retryWrites=true&w=majority
@@ -23,7 +23,7 @@ services:
       context: ./fe
       dockerfile: Dockerfile
     ports:
-      - 3007:80
+      - 3000:80
     environment:
       - NODE_ENV=development
       - REACT_APP_BE_NETWORK=backend
