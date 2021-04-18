@@ -1,5 +1,5 @@
 private
 node_modules
 .coverage
-env
+.env
 yarn-error

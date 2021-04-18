@@ -1,27 +1,39 @@
 # Name the node stage "builder"
 FROM node:15.2.0-alpine AS builder
+
+# ENV REACT_APP_SERVER_URL http://172.17.0.3:3001/api
+
 # Set working directory
 WORKDIR /app
+
+COPY ./package.json /app/package.json
+COPY ./package-lock.json /app/package-lock.json
+
+RUN npm install
 # Copy all files from current directory to working dir in image
 COPY . .
 
-ENV REACT_APP_SERVER_URL http://localhost:3001/api
-
 # install node modules and build assets
-RUN npm install
 RUN npm run build
 
+# set environment variables
+ARG REACT_APP_SERVER_URL
+ENV REACT_APP_SERVER_URL $REACT_APP_SERVER_URL
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
+
 # nginx state for serving content
-FROM nginx:stable-alpine
+FROM nginx
 
 # Copy static assets from builder stage
 COPY --from=builder /app/build /usr/share/nginx/html
-# COPY --from=builder /app/nginx.conf /etc/nginx/default.conf
+
+WORKDIR /etc/nginx/conf.d
+RUN rm -rf ./* 
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
-
 
 
 # ###########

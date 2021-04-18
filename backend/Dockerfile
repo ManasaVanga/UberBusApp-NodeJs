@@ -17,7 +17,7 @@ COPY package-lock.json .
 COPY . .
 
 # RUN npm install pm2 -g
-RUN npm install --save-dev dotenv
+# RUN npm install --save-dev dotenv
 RUN npm i
 #RUN npm install react-scripts@4.0.0 --silent
 
