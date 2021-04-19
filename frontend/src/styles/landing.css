@@ -5,7 +5,7 @@ body, html {
 #landing-page {
     /* background-image: url("../assets/landing-image.jfif"); */
     background-image: url("../assets/uberbus.png");
-    height: 70vh;
+    height:100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

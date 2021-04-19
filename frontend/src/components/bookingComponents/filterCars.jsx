@@ -108,62 +108,8 @@ class FilterCarsPage extends Component {
                     </p>
                 </Alert>}
                 <Form onSubmit={this.handleSubmitFilter} id="filter_form" >
-                    <Form.Group controlId="formHorizontalFirstName">
-                        <Form.Label >
-                            Make
-                        </Form.Label>
-                        <Form.Control name="make" type="text" placeholder="Make" onChange={this.handleChange} />
-                    </Form.Group>
 
-                    <Form.Group controlId="exampleForm.ControlSelect2">
-                        <Form.Label>Seats</Form.Label>
-                        <Form.Control name="seats" as="select" onChange={this.handleChange}>
-                            <option>Any</option>
-                            {CAR_SEATS.map(carSeat =>
-                                <>
-                                    <option>{carSeat}</option>
-                                </>
-                            )}
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group controlId="exampleForm.ControlSelect2">
-                        <Form.Label>Fuel Type</Form.Label>
-                        <Form.Control name="fueltype" as="select" onChange={this.handleChange}>
-                            <option>Any</option>
-                            {CAR_FUEL_TYPES.map(carFuel =>
-                                <>
-                                    <option>{carFuel}</option>
-                                </>
-                            )}
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group controlId="exampleForm.ControlSelect2">
-                        <Form.Label>Body Type</Form.Label>
-                        <Form.Control name="bodytype" as="select" onChange={this.handleChange}>
-                            <option>Any</option>
-                            {CAR_BODY_TYPES.map(carBodyType =>
-                                <>
-                                    <option>{carBodyType}</option>
-                                </>
-                            )}
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group controlId="exampleForm.ControlSelect2">
-                        <Form.Label>Colour</Form.Label>
-                        <Form.Control name="colour" as="select" onChange={this.handleChange}>
-                            <option>Any</option>
-                            {CAR_COLOURS.map(carColour =>
-                                <>
-                                    <option>{carColour}</option>
-                                </>
-                            )}
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group controlId="exampleForm.ControlSelect2">
+                    <Form.Group controlId="exampleForm.ControlSelect2" responsive>
                         <Form.Label>Location</Form.Label>
                         <Form.Control name="location" as="select" onChange={this.handleChange}>
                             <option>Any</option>
@@ -183,7 +129,7 @@ class FilterCarsPage extends Component {
                 </Form>
 
                 <h2>Available Cars from {this.state.pickupTime} till {this.state.returnTime}</h2>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Make</th>
@@ -194,7 +140,7 @@ class FilterCarsPage extends Component {
                             <th>Fuel Type</th>
                             <th>Location</th>
                             <th>Address</th>
-                            <th></th>
+                            <th>Operation</th>
                         </tr>
                     </thead>
                     <tbody>

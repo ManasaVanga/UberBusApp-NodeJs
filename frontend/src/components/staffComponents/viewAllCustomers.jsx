@@ -33,7 +33,7 @@ export default class ViewAllCustomersPage extends Component {
                     </p>
                 </Alert>}
                 <h2>View All Customers</h2>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Customer ID</th>

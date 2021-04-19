@@ -166,8 +166,32 @@ class BookingDashboard extends Component {
                 {this.state.nextBookingExists &&
                     <div className="white-cards-div">
                         <Container>
-                            <h2>Your upcoming booking: </h2>
-                            {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
+                            <h2>Your upcoming ride: </h2>
+                            <table>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Booking time</th>
+                                <th>Pickup time</th>
+                                <th>Return time</th>
+                                <th>Cost</th>
+                                <th>Location</th>
+                                {/* <th>Destination</th> */}
+                                <th>Address</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>{this.state.nextBooking._id}</td>
+                                <td>{this.state.nextBooking.bookedtime}</td>
+                                <td>{this.state.nextBooking.pickuptime}</td>
+                                <td>{this.state.nextBooking.returntime}</td>
+                                <td>${this.state.nextBooking.cost}</td>
+                                <td>{this.state.location.name}</td>
+                                {/* <td>{this.state.destination.name}</td> */}
+                                <td>{this.state.location.address}</td>
+                                <td>{this.state.nextBooking.status}</td>
+                            </tr>
+                        </table>
+                        {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
                                 <Map google={this.props.google}
                                     initialCenter={{
                                         lat: this.state.location.lat,
@@ -197,16 +221,17 @@ class BookingDashboard extends Component {
                                     </InfoWindow>
                                 </Map>
                             </div>}
-                            <b>Booking ID: </b> {this.state.nextBooking._id} <br></br>
+                            {/* <b>Booking ID: </b> {this.state.nextBooking._id} <br></br>
                             <b>Booking time: </b> {this.state.nextBooking.bookedtime} <br></br>
                             <b>Pickup time: </b> {this.state.nextBooking.pickuptime} <br></br>
                             <b>Return time: </b> {this.state.nextBooking.returntime} <br></br>
                             <b>Cost: </b> ${this.state.nextBooking.cost} <br></br>
                             <b>Location: </b> {this.state.location.name} <br></br>
                             <b>Address: </b> {this.state.location.address} <br></br>
-                            <b>Status: </b> {this.state.nextBooking.status} <br></br>
-                            <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Pickup</Button>
-                            <Button variant="danger" onClick={this.handleReturnButton} disabled={!this.state.avaialbleReturn}>Return</Button>
+                            <b>Status: </b> {this.state.nextBooking.status} <br></br> */}
+                            {/* <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Pickup</Button>
+                            <Button variant="danger" onClick={this.handleReturnButton} disabled={!this.state.avaialbleReturn}>Return</Button> */}
+                            <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Get directions</Button>
                             <Button href={`/mybookings/${this.state.nextBooking._id}`}>View Booking</Button>
                             <Col sm={4}>
                                 <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>

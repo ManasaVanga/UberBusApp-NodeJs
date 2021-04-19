@@ -25,6 +25,7 @@ export default class ViewCustomerPage extends Component {
 
     render() {
         return (
+            
             <Container>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error fetching customer details!</Alert.Heading>

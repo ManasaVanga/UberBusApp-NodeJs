@@ -13,7 +13,7 @@ class Header extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="container-fluid">
-                        <Nav.Link href="/">Home</Nav.Link>
+                        {/* <Nav.Link href="/">Home</Nav.Link> */}
                         <Nav.Link href="/locations">Locations</Nav.Link>
                         {isUserLoggedIn &&
                             <>
@@ -21,6 +21,7 @@ class Header extends Component {
                                 {!isUserStaff && <Nav.Link href="/mybookings">My Bookings</Nav.Link>}
                                 {!isUserStaff && <Nav.Link href="/dashboard">Dashboard</Nav.Link>}
                                 {isUserStaff && <Nav.Link href="/staff">Staff Dashboard</Nav.Link>}
+                                {isUserStaff && <Nav.Link href="/buses">Bus</Nav.Link>}
                             </>
                         }
                         {isUserLoggedIn &&

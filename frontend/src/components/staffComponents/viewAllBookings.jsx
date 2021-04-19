@@ -61,7 +61,7 @@ export default class ViewAllBookingsPage extends Component {
                     </p>
                 </Alert>}
                 <h2>View All Bookings</h2>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Booking ID</th>
@@ -69,7 +69,7 @@ export default class ViewAllBookingsPage extends Component {
                             <th>Booked Time</th>
                             <th>Pickup Time</th>
                             <th>Return Time</th>
-                            <th>Car ID</th>
+                            <th>Bus ID</th>
                             <th>Cost</th>
                             <th>Location</th>
                             <th>Address</th>

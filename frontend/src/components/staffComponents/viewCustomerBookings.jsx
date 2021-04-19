@@ -1,6 +1,6 @@
 /* View customer bookings page */
 import React, { Component } from 'react';
-import { Alert, Button, Table } from 'react-bootstrap';
+import { Alert, Button, Container, Table } from 'react-bootstrap';
 import BookingServiceApi from '../../api/BookingServiceApi';
 const { default: LocationServiceApi } = require("../../api/LocationServiceApi");
 const { default: CarServiceApi } = require("../../api/CarServiceApi");
@@ -53,6 +53,7 @@ export default class ViewCustomerBookingsPage extends Component {
 
     render() {
         return (
+            <Container>
             <div className="container">
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error fetching customer's bookings!</Alert.Heading>
@@ -62,7 +63,7 @@ export default class ViewCustomerBookingsPage extends Component {
                 </Alert>}
                 <h2>Bookings for Customer {this.props.match.params.id}</h2>
                 <Button href={`/admin/view/customers/${this.props.match.params.id}`}>View Customer Profile</Button>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Booking ID</th>
@@ -127,6 +128,7 @@ export default class ViewCustomerBookingsPage extends Component {
                     </tbody>
                 </Table>
             </div>
+            </Container>
         )
     }
 }

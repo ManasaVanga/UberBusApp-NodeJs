@@ -32,6 +32,7 @@ import ModifyCarDetailsPage from './components/staffComponents/modifyCarDetails'
 import ViewAllLocations from './components/staffComponents/viewAllLocations';
 import ViewLocation from './components/staffComponents/ViewLocation';
 import ModifyLocationPage from './components/staffComponents/modifyLocationPage';
+import Cars from './components/landingBodyComponents/cars';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -81,6 +82,7 @@ class App extends Component {
           {!isUserStaff && <AuthenticatedRoute path="/myprofile" component={MyProfilePage} />}
           {/* Staff and admin only routes */}
           <StaffRoute path="/staff" component={Overview} />
+          <StaffRoute path="/buses" component={Cars}></StaffRoute>
           <StaffRoute path="/admin/signup" component={AdminSignUpPage} />
           <StaffRoute path="/admin/addcars" component={CreateCar} />
           <StaffRoute path="/admin/addlocation" component={CreateLocation} />

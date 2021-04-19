@@ -40,9 +40,9 @@ class LandingPage extends Component {
                         }
                     </div>
                 </Container>
-                <Container id="landing-main" fluid>
+                {/* <Container id="landing-main" fluid>
                     <LandingBody />
-                </Container>
+                </Container> */}
             </>
         )
     }

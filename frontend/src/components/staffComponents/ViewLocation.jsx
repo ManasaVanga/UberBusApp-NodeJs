@@ -88,7 +88,8 @@ class ViewLocation extends Component {
                     </Alert>
                 }
                 <h2>Location details:</h2>
-                <Table striped bordered hover>
+                
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>id</th>
@@ -106,7 +107,7 @@ class ViewLocation extends Component {
                         </tr>
                     </tbody>
                 </Table>
-                <Container>
+
                     {this.state.isLoading && <div style={{ height: '400px' }}>
                         <Map google={this.props.google}
                             initialCenter={{
@@ -137,13 +138,13 @@ class ViewLocation extends Component {
                             </InfoWindow>
                         </Map>
                     </div>}
-                </Container>
-                <h2>Buses here:</h2>
-                <Row>
+                    <h2>Buses here:</h2>
+                <Row responsive>
                     {this.state.cars.length !== 0 ? this.state.cars.map(car =>
                         <CarDescriptionComponent car={car} />
                     ) : <Col>Garage empty</Col>}
                 </Row>
+
             </Container>
         )
     }
@@ -153,7 +154,7 @@ function CarDescriptionComponent(props) {
     // car description component card
     const { car } = props
     return (
-        <Col sm={4}>
+        <Col sm={4} responsive>
             <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>
                 <img src={car.image} alt="car" width="100" />
                 <h2 style={{ marginTop: '1vh' }}>{car.make}</h2>

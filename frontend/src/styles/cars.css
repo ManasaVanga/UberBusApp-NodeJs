@@ -8,3 +8,12 @@
 .cars-div-white h3 {
     margin-bottom: 3vh;
 }
+
+#buses {
+    background-image: url("../assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    
+}

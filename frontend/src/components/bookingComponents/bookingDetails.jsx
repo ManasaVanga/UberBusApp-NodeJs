@@ -1,10 +1,11 @@
 /* Bookings details page */
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { Alert, Button, Col } from 'react-bootstrap';
+import { Alert, Button, Col ,Container, Table} from 'react-bootstrap';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import CarServiceApi from '../../api/CarServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
+import "../../App.css"
 
 class BookingDetailsPage extends Component {
     constructor(props) {
@@ -135,7 +136,7 @@ class BookingDetailsPage extends Component {
                 </Alert>}
                 {!this.state.errorMessage &&
                     <>
-                        {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
+                        {/* {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
                             <Map google={this.props.google}
                                 initialCenter={{
                                     lat: this.state.location.lat,
@@ -164,8 +165,63 @@ class BookingDetailsPage extends Component {
                                     </div>
                                 </InfoWindow>
                             </Map>
-                        </div>}
-                        <b>Booking ID: </b> {this.state.booking._id} <br></br>
+                        </div>} */}
+                        <Container>
+                        <Table striped bordered hover responsive="sm">
+
+                        <thead>
+                        <tr>
+                                <th>Booking ID</th>
+                                <th>Booking time</th>
+                                <th>Pickup time</th>
+                                <th>Return time</th>
+                                <th>Cost</th>
+                                <th>Location</th>
+                                <th>Destination</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                                <td>{this.state.booking._id}</td>
+                                <td>{this.state.booking.bookedtime}</td>
+                                <td>{this.state.booking.pickuptime}</td>
+                                <td>{this.state.booking.returntime}</td>
+                                <td>${this.state.booking.cost}</td>
+                                <td>{this.state.location.name}</td>
+                                <td>{this.state.destination.name}</td>
+                                <td>{this.state.location.address}</td>
+                                <td>{this.state.booking.status}</td>
+                            </tr>
+                        </tbody>
+                        </Table>
+                        </Container>
+                        {/* <table>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Booking time</th>
+                                <th>Pickup time</th>
+                                <th>Return time</th>
+                                <th>Cost</th>
+                                <th>Location</th>
+                                <th>Destination</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>{this.state.booking._id}</td>
+                                <td>{this.state.booking.bookedtime}</td>
+                                <td>{this.state.booking.pickuptime}</td>
+                                <td>{this.state.booking.returntime}</td>
+                                <td>${this.state.booking.cost}</td>
+                                <td>{this.state.location.name}</td>
+                                <td>{this.state.destination.name}</td>
+                                <td>{this.state.location.address}</td>
+                                <td>{this.state.booking.status}</td>
+                            </tr>
+                        </table> */}
+                        {/* <b>Booking ID: </b> {this.state.booking._id} <br></br>
                         <b>Booking time: </b> {this.state.booking.bookedtime} <br></br>
                         <b>Pickup time: </b> {this.state.booking.pickuptime} <br></br>
                         <b>Return time: </b> {this.state.booking.returntime} <br></br>
@@ -173,11 +229,11 @@ class BookingDetailsPage extends Component {
                         <b>Location: </b> {this.state.location.name} <br></br>
                         <b>Destination: </b>{this.state.destination.name} <br></br>
                         <b>Address: </b> {this.state.location.address} <br></br>
-                        <b>Status: </b> {this.state.booking.status} <br></br>
+                        <b>Status: </b> {this.state.booking.status} <br></br> */}
                         {(this.state.booking.status === "Confirmed" && this.checkBookingPast(this.state.booking.pickuptime)) &&
                             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
                         }
-                        <Col sm={4}>
+                        <Col lg={true} sm={4}>
                             <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>
                                 <img src={this.state.car.image} alt="car" width="100" />
                                 <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>

@@ -41,14 +41,14 @@ class ViewAllCars extends Component {
     render() {
         return (
             <Container>
-                <h2>All cars, click row to view/modify.</h2>
+                <h2>All buses, click row to view/modify.</h2>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error Getting all cars!</Alert.Heading>
                     <p>
                         {this.state.errorMessage}
                     </p>
                 </Alert>}
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>id</th>
@@ -64,7 +64,7 @@ class ViewAllCars extends Component {
                             <th>current booking</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
                             this.state.cars.map(car =>
                                 <tr style={{ 'cursor': 'pointer' }} key={car.id} onClick={() => this.viewCarDetails(car.id)}>

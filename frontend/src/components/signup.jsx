@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Form, Col, Button, Row, Alert } from 'react-bootstrap';
 import UserServiceApi from '../api/UserServiceApi.js';
+import "../styles/login.css"
 
 class SignUpPage extends Component {
     constructor(props) {
@@ -57,6 +58,8 @@ class SignUpPage extends Component {
 
     render() {
         return (
+            <html>
+            <body id = "login">
             <div className="container">
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Sign up failed!</Alert.Heading>
@@ -110,8 +113,9 @@ class SignUpPage extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
-
             </div>
+            </body>
+            </html>
         )
     }
 }

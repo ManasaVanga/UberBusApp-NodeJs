@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Form, Col, Button, Row, Alert } from 'react-bootstrap';
 import UserServiceApi from '../api/UserServiceApi.js';
+import "../styles/login.css"
 
 class LoginPage extends Component {
     constructor(props) {
@@ -43,14 +44,16 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div className="container">
+            <html>
+            <body id = "login">
+            <div className="container" >
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Login failed!</Alert.Heading>
                     <p>
                         {this.state.errorMessage}
                     </p>
                 </Alert>}
-                <Form onSubmit={this.handleSubmit} id="login_form">
+                <Form onSubmit={this.handleSubmit} id="login_form" className="center">
                     <Form.Group as={Row} controlId="formHorizontalEmail">
                         <Form.Label column sm={2}>
                             Email
@@ -76,6 +79,8 @@ class LoginPage extends Component {
                     </Form.Group>
                 </Form>
             </div>
+            </body>
+            </html>
         )
     }
 }

@@ -164,8 +164,8 @@ export default class ModifyCarDetails extends Component {
 
         return (
             <Container>
-                <h2>Car details:</h2>
-                <Table striped bordered hover>
+                <h2>Bus details:</h2>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>id</th>
@@ -216,7 +216,7 @@ export default class ModifyCarDetails extends Component {
                         </p>
                     </Alert>
                 }
-                <Form>
+                <Form responsive>
                     <Form.Group as={Row} controlId="formHorizontalMake">
                         <Form.Label column sm={2}>
                             Make

@@ -91,7 +91,7 @@ class MyBookingPage extends Component {
 
     render() {
         return (
-            <Container>
+            <Container >
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error obtaining bookings!</Alert.Heading>
                     <p>
@@ -99,7 +99,7 @@ class MyBookingPage extends Component {
                     </p>
                 </Alert>}
                 <h2>My Bookings</h2>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>Booking ID</th>
@@ -112,7 +112,6 @@ class MyBookingPage extends Component {
                             <th>Address</th>
                             <th>Destination</th>
                             <th>Status</th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
