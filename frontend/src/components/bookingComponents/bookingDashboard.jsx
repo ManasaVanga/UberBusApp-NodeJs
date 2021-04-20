@@ -6,6 +6,10 @@ import CarServiceApi from '../../api/CarServiceApi';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
 
+const container = {
+    color: "white",
+}
+
 class BookingDashboard extends Component {
     constructor(props) {
         super(props);
@@ -166,9 +170,9 @@ class BookingDashboard extends Component {
                 {this.state.nextBookingExists &&
                     <div className="white-cards-div">
                         <Container>
-                            <h2>Your upcoming ride: </h2>
+                            <h2 style={container}>Your upcoming ride: </h2>
                             <table>
-                            <tr>
+                            <tr style={container}>
                                 <th>Booking ID</th>
                                 <th>Booking time</th>
                                 <th>Pickup time</th>
@@ -179,7 +183,7 @@ class BookingDashboard extends Component {
                                 <th>Address</th>
                                 <th>Status</th>
                             </tr>
-                            <tr>
+                            <tr style={container}>
                                 <td>{this.state.nextBooking._id}</td>
                                 <td>{this.state.nextBooking.bookedtime}</td>
                                 <td>{this.state.nextBooking.pickuptime}</td>
@@ -191,7 +195,7 @@ class BookingDashboard extends Component {
                                 <td>{this.state.nextBooking.status}</td>
                             </tr>
                         </table>
-                        {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
+                        {this.state.isLoading && <div id="garage-map" style={{ height: '400px',padding:'10px' }}>
                                 <Map google={this.props.google}
                                     initialCenter={{
                                         lat: this.state.location.lat,
@@ -231,21 +235,24 @@ class BookingDashboard extends Component {
                             <b>Status: </b> {this.state.nextBooking.status} <br></br> */}
                             {/* <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Pickup</Button>
                             <Button variant="danger" onClick={this.handleReturnButton} disabled={!this.state.avaialbleReturn}>Return</Button> */}
-                            <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Get directions</Button>
+                            {/* <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Get directions</Button> */}
                             <Button href={`/mybookings/${this.state.nextBooking._id}`}>View Booking</Button>
-                            <Col sm={4}>
-                                <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>
+                            {/* <Col sm={4}>
+                                <div className="cars-div-white" style={{ 'border': 'solid black 2px', 'color':'white' }}>
                                     <img src={this.state.car.image} alt="car" width="100" />
                                     <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>
                                     <p>{this.state.car.fueltype}, {this.state.car.bodytype}, {this.state.car.seats} seaters, {this.state.car.colour}</p>
                                     <h5>Number Plate: {this.state.car.numberplate}</h5>
                                     <p><b>Bus ID: </b>{this.state.car._id}</p>
                                 </div>
-                            </Col>
+                            </Col> */}
                         </Container>
                     </div>
                 }
-                <h2>Let's find you a bus!</h2>
+                <br/>
+                <br/>
+                <br/>
+                <h2 style={container}>Let's find you a bus!</h2>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error checking availability!</Alert.Heading>
                     <p>

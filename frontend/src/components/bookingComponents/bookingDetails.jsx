@@ -7,6 +7,10 @@ import CarServiceApi from '../../api/CarServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
 import "../../App.css"
 
+const container = {
+    color: "white",
+}
+
 class BookingDetailsPage extends Component {
     constructor(props) {
         super(props);
@@ -127,9 +131,9 @@ class BookingDetailsPage extends Component {
     render() {
         return (
             <div className="container">
-                <h2>Booking details</h2>
+                <h2 style={container}>Booking details</h2>
                 {this.state.errorMessage && <Alert variant="danger">
-                    <Alert.Heading>Error obtaining booking!</Alert.Heading>
+                    <Alert.Heading style={container}>Error obtaining booking!</Alert.Heading>
                     <p>
                         {this.state.errorMessage}
                     </p>
@@ -167,7 +171,7 @@ class BookingDetailsPage extends Component {
                             </Map>
                         </div>} */}
                         <Container>
-                        <Table striped bordered hover responsive="sm">
+                        <Table bordered responsive="sm" style={container}>
 
                         <thead>
                         <tr>
@@ -234,7 +238,7 @@ class BookingDetailsPage extends Component {
                             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
                         }
                         <Col lg={true} sm={4}>
-                            <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>
+                            <div className="cars-div-white" style={{ 'border': 'solid black 2px', 'color':'white' }}>
                                 <img src={this.state.car.image} alt="car" width="100" />
                                 <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>
                                 <p>{this.state.car.fueltype}, {this.state.car.bodytype}, {this.state.car.seats} seaters, {this.state.car.colour}</p>

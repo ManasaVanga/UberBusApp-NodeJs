@@ -6,6 +6,12 @@ import { CAR_COLOURS, CAR_BODY_TYPES, CAR_SEATS, CAR_FUEL_TYPES } from '../../Co
 import LocationServiceApi from '../../api/LocationServiceApi';
 import BookingConfirmDetailsPopUp from './bookingConfirmDetails';
 
+const container = {
+    color: "white",
+}
+const container1={
+    color:"orange",
+}
 class FilterCarsPage extends Component {
     constructor(props) {
         super(props);
@@ -98,7 +104,7 @@ class FilterCarsPage extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={container}>
                 {this.state.popUp && <BookingConfirmDetailsPopUp locations={this.state.locations} car={this.state.selectedCar} pickupTime={this.state.pickupTime} returnTime={this.state.returnTime} togglePopUp={this.togglePopUp} />}
                 <h2>Search for a car</h2>
                 {this.state.errorMessage && <Alert variant="danger">
@@ -129,7 +135,7 @@ class FilterCarsPage extends Component {
                 </Form>
 
                 <h2>Available Cars from {this.state.pickupTime} till {this.state.returnTime}</h2>
-                <Table striped bordered hover responsive>
+                <Table bordered responsive style={container1}>
                     <thead>
                         <tr>
                             <th>Make</th>

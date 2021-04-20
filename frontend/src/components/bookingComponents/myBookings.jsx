@@ -6,6 +6,9 @@ import LocationServiceApi from '../../api/LocationServiceApi';
 import CarServiceApi from '../../api/CarServiceApi';
 import UserServiceApi from '../../api/UserServiceApi';
 
+const container = {
+    color: "white",
+}
 class MyBookingPage extends Component {
     constructor(props) {
         super(props);
@@ -91,7 +94,7 @@ class MyBookingPage extends Component {
 
     render() {
         return (
-            <Container >
+            <Container style={container}>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error obtaining bookings!</Alert.Heading>
                     <p>
@@ -99,9 +102,10 @@ class MyBookingPage extends Component {
                     </p>
                 </Alert>}
                 <h2>My Bookings</h2>
-                <Table striped bordered hover responsive>
+                <br />
+                <Table bordered responsive >
                     <thead>
-                        <tr>
+                        <tr style={container}>
                             <th>Booking ID</th>
                             <th>Booked Time</th>
                             <th>Pickup Time</th>
@@ -112,12 +116,13 @@ class MyBookingPage extends Component {
                             <th>Address</th>
                             <th>Destination</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Details</th>
+                            <th>Cancel</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.bookings.map(booking =>
-                            <tr>
+                            <tr style={container}>
                                 <td>{booking.id}</td>
                                 <td>{booking.bookedtime}</td>
                                 <td>{booking.pickuptime}</td>
