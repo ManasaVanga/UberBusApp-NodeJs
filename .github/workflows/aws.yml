@@ -63,7 +63,7 @@ jobs:
           # be deployed to ECS.
           docker-compose up -d --build
           echo building latest images...
-          >   
+        >   
           docker build \
             -f backend/Dockerfile \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
