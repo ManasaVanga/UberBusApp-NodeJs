@@ -24,18 +24,16 @@ phases:
       - echo building prod images...
       - >
         docker build \
-          -f be/Dockerfile \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-be:prod \
+          -f backend/Dockerfile \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/uberbusapp-be:prod \
           ./be
-      - >
-        docker build \
-          -f fe/Dockerfile \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-fe:prod \
-          --build-arg NODE_ENV=production \
-          --build-arg REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL \
-          ./fe
   post_build:
     commands:
     - echo pushing prod images to ecr...
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-be:prod
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-fe:prod
+    - printf '[{"name":"uberapp-be-td","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/uberbusapp-be:prod > imagedefinitions.json
+
+artifacts:
+    files: imagedefinitions.json
+    
