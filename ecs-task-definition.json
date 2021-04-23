@@ -19,7 +19,7 @@
                     "options": {
                         "awslogs-region": "us-east-1", 
                         "awslogs-stream-prefix": "ecs", 
-                        "awslogs-group": "/ecs/uber_bus_app_be"
+                        "awslogs-group": "/ecs/uberapp-be-td"
                     }
             }, 
             "essential": true 
