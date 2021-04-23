@@ -2,12 +2,9 @@
     "family": "uber_bus_app_be", 
     "placementConstraints": [],  
     "executionRoleArn": "arn:aws:iam::005299268433:role/ecsTaskExecutionRole", 
-         
-        
-    "taskRoleArn": "arn:aws:iam::005299268433:role/ecsTaskExecutionRole",  
+    "networkMode":"awsvpc", 
     "containerDefinitions": [
         {
-             
             "name": "uber_bus_app_be", 
             "image": "005299268433.dkr.ecr.us-east-1.amazonaws.com/uber_bus_app_be:latest", 
             "portMappings": [
@@ -29,8 +26,10 @@
                 
         }
     ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
     "cpu":"512",
-    "memory":"1024"
-    
+    "memory":"1024"   
     
 }
