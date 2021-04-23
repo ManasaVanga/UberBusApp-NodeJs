@@ -32,7 +32,7 @@ phases:
     - echo pushing prod images to ecr...
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-be:prod
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-fe:prod
-    - printf '[{"name":"uberapp-be-td","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/uberbusapp-be:prod > imagedefinitions.json
+    - printf '[{"name":"uberapp-be-td","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/uberbusapp-be:prod > imagedefinitions.json
 
 artifacts:
     files: imagedefinitions.json
