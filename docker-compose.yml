@@ -34,10 +34,9 @@ services:
   #   networks:
   #     - frontend
   #     - backend
-
 # bridge networks to allow the containers to communicate with each other
-networks:
-  frontend:
-    driver: bridge
-  backend:
-    driver: bridge
+# networks:
+#   frontend:
+#     driver: bridge
+#   backend:
+#     driver: bridge
