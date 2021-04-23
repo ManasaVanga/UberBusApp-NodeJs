@@ -26,7 +26,7 @@
 on:
   push:
     branches:
-      - master
+      - main
 
 name: Deploy to Amazon ECS
 
@@ -62,7 +62,7 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           docker-compose up -d --build
-          echo "building latest images..." 
+          echo "building latest images..."   
           docker build \
            -f backend/Dockerfile \
            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \

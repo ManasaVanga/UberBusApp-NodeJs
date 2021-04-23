@@ -3,7 +3,8 @@ const UserModel = require('../api/models/user');
 const mongoose = require('mongoose');
 const userData = { _id: new mongoose.Types.ObjectId(), firstname: "Jonah", lastname: "Smith", email: "jonah1234@gmail.com", password: "foobar", usertype: "customer" };
 
-const test_uri = "mongodb://localhost:27017/pp-test";
+// const test_uri = "mongodb://localhost:27017/pp-test";
+const test_uri = "mongodb+srv://admin:Csye7220@uberapp.hvf8i.mongodb.net/test?retryWrites=true&w=majority"
 
 describe('insert new user into collection', () => {
   beforeAll(async () => {
