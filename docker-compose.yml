@@ -13,8 +13,8 @@ services:
       - NODE_ENV=development
       - DATABASE_URL=mongodb+srv://%s:%s@uberapp.hvf8i.mongodb.net/uber?retryWrites=true&w=majority
       - DATABASE_TEST_URL=mongodb://localhost:27017/
-    networks:
-      - backend
+    # networks:
+    #   - backend
 
   # fe:
   #   stdin_open: true
