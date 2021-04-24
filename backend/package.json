@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --",
+    "build": "next build",
     "start": "nodemon app_server.js",
     "start-node": "node app_server.js"
   },
