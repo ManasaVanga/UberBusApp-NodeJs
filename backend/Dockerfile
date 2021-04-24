@@ -1,4 +1,5 @@
 ###########
+###########
 # BUILDER #
 ###########
 
@@ -14,10 +15,11 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package.json .
 COPY package-lock.json .
-RUN npm ci
-
 COPY . .
 
-EXPOSE 3001
+# RUN npm install pm2 -g
+# RUN npm install --save-dev dotenv
+RUN npm i
+#RUN npm install react-scripts@4.0.0 --silent
 
 CMD ["npm", "start"]
