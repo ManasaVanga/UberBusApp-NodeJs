@@ -11,14 +11,13 @@ WORKDIR /app
 # add /usr/src/app/node_modules/.bin to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-# Installing dependencies
-COPY package*.json ./
-RUN npm install
+# install and cache app dependencies
+COPY package.json .
+COPY package-lock.json .
+RUN npm ci
 
-# Copying source files
+# create build
 COPY . .
-
-# Building app
 RUN npm run build
 
 CMD ["npm", "start"]
