@@ -81,7 +81,6 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker-compose up -d --build
           echo building latest images...  
           docker build \
             -f backend/Dockerfile \
