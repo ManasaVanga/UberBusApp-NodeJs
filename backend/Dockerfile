@@ -16,8 +16,5 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm ci
 
-# create build
-COPY . .
-RUN npm run build
 
 CMD ["npm", "start"]
