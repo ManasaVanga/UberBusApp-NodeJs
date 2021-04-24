@@ -23,6 +23,7 @@ describe('insert new car into collection', () => {
 
   afterAll(async () => {
     mongoose.connection.db.dropCollection("cars", function (err, result) { });
+    mongoose.disconnect();
   });
 
   it('create and save location successfully', async () => {

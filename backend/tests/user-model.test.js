@@ -1,6 +1,7 @@
 /* User model tests */
 const UserModel = require('../api/models/user');
 const mongoose = require('mongoose');
+const { deleteOne } = require('../api/models/user');
 const userData = { _id: new mongoose.Types.ObjectId(), firstname: "Jonah", lastname: "Smith", email: "jonah1234@gmail.com", password: "foobar", usertype: "customer" };
 
 // const test_uri = "mongodb://localhost:27017/pp-test";
@@ -18,6 +19,7 @@ describe('insert new user into collection', () => {
 
   afterAll(async () => {
     mongoose.connection.db.dropCollection("users", function (err, result) { });
+    mongoose.disconnect();
   });
 
   it('create and save user successfully', async () => {

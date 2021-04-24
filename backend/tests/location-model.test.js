@@ -18,6 +18,7 @@ describe('insert new location into collection', () => {
 
   afterAll(async () => {
     mongoose.connection.db.dropCollection("locations", function (err, result) { });
+    mongoose.disconnect();
   });
 
   it('create and save location successfully', async () => {

@@ -41,6 +41,7 @@ describe('insert new car into collection', () => {
     mongoose.connection.db.dropCollection("locations", function (err, result) { });
     mongoose.connection.db.dropCollection("bookings", function (err, result) { });
     mongoose.connection.db.dropCollection("users", function (err, result) { });
+    mongoose.disconnect();
   });
 
   // it('create and save booking successfully', async () => {
