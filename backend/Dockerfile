@@ -11,14 +11,14 @@ WORKDIR /app
 # add /usr/src/app/node_modules/.bin to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-# install and cache app dependencies
-COPY package.json .
-COPY package-lock.json .
+# Installing dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copying source files
 COPY . .
 
-# RUN npm install pm2 -g
-# RUN npm install --save-dev dotenv
-RUN npm i
-#RUN npm install react-scripts@4.0.0 --silent
+# Building app
+RUN npm run build
 
 CMD ["npm", "start"]
