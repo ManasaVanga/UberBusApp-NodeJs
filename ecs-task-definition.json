@@ -39,7 +39,7 @@
                 "logDriver": "awsfirelens",
                 "options": {
                     "Name": "loki",
-                    "Url": "https://44529:${{secrets.GRAFANA_API_KEY}}@logs-prod-us-central1.grafana.net/loki/api/v1/push",
+                    "Url": "https://44529:eyJrIjoiMDhiOGYwY2MwZTdmN2UzNWUxMzZhMjlhNzdlN2NlYTE5M2M1Zjc5MiIsIm4iOiI0NDUyOSIsImlkIjo0ODc2MTl9@logs-prod-us-central1.grafana.net/loki/api/v1/push",
                     "Labels": "{job=\"firelens\"}",
                     "RemoveKeys": "container_id,ecs_task_arn",
                     "LabelKeys": "container_name,ecs_task_definition,source,ecs_cluster",
