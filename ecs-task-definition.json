@@ -5,6 +5,27 @@
     "networkMode":"awsvpc", 
     "containerDefinitions": [
         {
+            "essential": true,
+            "image": "grafana/fluent-bit-plugin-loki:2.0.0-amd64",
+            "name": "log_router",
+            "firelensConfiguration": {
+                "type": "fluentbit",
+                "options": {
+                    "enable-ecs-log-metadata": "true"
+                }
+            },
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "firelens-container",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-create-group": "true",
+                    "awslogs-stream-prefix": "firelens"
+                }
+            },
+            "memoryReservation": 50
+        },
+        {
             "name": "uber_bus_app_be", 
             "image": "005299268433.dkr.ecr.us-east-1.amazonaws.com/uber_bus_app_be:latest", 
             "portMappings": [
@@ -13,15 +34,18 @@
                     "containerPort": 3001, 
                     "hostPort": 3001
                 }
-            ], 
+            ],  
             "logConfiguration": {
-                "logDriver": "awslogs", 
-                    "options": {
-                        "awslogs-region": "us-east-1", 
-                        "awslogs-stream-prefix": "ecs", 
-                        "awslogs-group": "/ecs/uberapp-be-td"
-                    }
-            }, 
+                "logDriver": "awsfirelens",
+                "options": {
+                    "Name": "loki",
+                    "Url": "https://44529:eyJrIjoiMDhiOGYwY2MwZTdmN2UzNWUxMzZhMjlhNzdlN2NlYTE5M2M1Zjc5MiIsIm4iOiI0NDUyOSIsImlkIjo0ODc2MTl9@logs-prod-us-central1.grafana.net/loki/api/v1/push",
+                    "Labels": "{job=\"firelens\"}",
+                    "RemoveKeys": "container_id,ecs_task_arn",
+                    "LabelKeys": "container_name,ecs_task_definition,source,ecs_cluster",
+                    "LineFormat": "key_value"
+                }
+            },
             "essential": true 
                 
         }
