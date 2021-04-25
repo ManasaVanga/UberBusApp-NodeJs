@@ -81,6 +81,7 @@ exports.login_user = (req, res) => {
                         expiresIn: 31556926 // 1 year in seconds
                     },
                     (err, token) => {
+                        console.log("jwt token: "+ token);
                         res.json({
                             id: user._id,
                             token: "Bearer " + token

@@ -12,6 +12,13 @@ const bookings_routes = require("./api/routes/bookings");
 const cars_routes = require("./api/routes/cars");
 dotenv.config();
 
+const log4js = require('log4js');
+// log4js.configure({
+//     appenders: { logs: { type: 'file', filename: '/home/ubuntu/webapp/logs/webapp.log' } },
+//     categories: { default: { appenders: ['logs'], level: 'info' } }
+// });
+const logger = log4js.getLogger('logs');
+
 // const db_uri = process.env.MONGO_URI || "mongodb+srv://sdileepkumarreddy:Qwerty123@cluster0.j477k.mongodb.net"
 
 const db_uri = "mongodb+srv://admin:Csye7220@uberapp.hvf8i.mongodb.net";
@@ -30,6 +37,8 @@ mongoose.Promise = global.Promise;
 
 // simple route
 app.get("/test", (req, res) => {
+  console.log("Test api call");
+  logger.info("Uber app backend test end point");
   res.json({ message: "Welcome to Uber Bus App Nodejs(Webapp) application." });
 });
 // app.get("/test", (err, res) => {
