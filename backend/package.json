@@ -9,7 +9,7 @@
     "start": "nodemon app_server.js",
     "start-node": "node app_server.js"
   },
-  "author": "Jia Jun Yong",
+  "author": "Uber bus",
   "license": "ISC",
   "dependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
